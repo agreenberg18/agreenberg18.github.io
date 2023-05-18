@@ -23,11 +23,10 @@
         branch.init('key_live_mg0519nJbhjZQBPkKF6G6epnEAeGL8VD');
 
         //start journey lisener
-        // let journeyListener = (event, data) => {
-            
-        //     window.branchJourneyInfo = data
-        // }
-        // branch.addListener('willShowJourney', journeyListener);
+        let journeyListener = (event, data) => {
+            dataLayer.push({ 'event': 'branch-journey', 'journeyData': data })
+        }
+        branch.addListener('willShowJourney', journeyListener);
     </script>
 </head>
 
