@@ -24,10 +24,10 @@
         branch.closeJourney(function(err) { console.log(err); });
 
         //start journey lisener
-        var journeyListener = function (event, data) {
-            dataLayer.push({ 'event': 'branch-journey', 'journeyData': data })
-        }
-        branch.addListener('willShowJourney', journeyListener);
+        // var journeyListener = function (event, data) {
+        //     dataLayer.push({ 'event': 'branch-journey', 'journeyData': data })
+        // }
+        // branch.addListener('willShowJourney', journeyListener);
     </script>
 </head>
 
