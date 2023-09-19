@@ -26,8 +26,10 @@
         branch.addListener('didShowJourney', journeyListener);
         var journeyListener = function (event, data) {
             if (window.journeyShown === false) {
-                branch.closeJourney(function (err) { console.log(err); });
                 window.journeyShown = true
+                console.log("journey shown")
+                branch.closeJourney(function (err) { console.log(err); });
+                console.log("Closed journey")
             }
             else {
                     console.log('journey shown')
