@@ -25,6 +25,7 @@
 
         branch.addListener('didShowJourney', journeyListener);
         var journeyListener = function (event, data) {
+            console.log('inside journeyListener')
             if (window.journeyShown === false) {
                 window.journeyShown = true
                 console.log("journey shown")
