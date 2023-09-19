@@ -37,6 +37,7 @@
         let x = setInterval( function () {
                 console.log('waited 3 seconds')
                 branch.track('pageview');
+                clearInterval(x)
         }, 3000)
     </script>
 </head>
