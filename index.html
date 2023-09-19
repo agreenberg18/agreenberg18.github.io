@@ -34,11 +34,10 @@
                     dataLayer.push({ 'event': 'branch-journey', 'journeyData': data })
             }
         }
-        window.onscroll = function () {
-            if (document.body.scrollTop > 500) {
+        let x = setInterval( function () {
+                console.log('waited 3 seconds')
                 branch.track('pageview');
-            }
-        }
+        }, 3000)
         branch.addListener('willShowJourney', journeyListener);
     </script>
 </head>
