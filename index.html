@@ -20,28 +20,41 @@
         //load branch:
         (function (b, r, a, n, c, h, _, s, d, k) { if (!b[n] || !b[n]._q) { for (; s < _.length;)c(h, _[s++]); d = r.createElement(a); d.async = 1; d.src = "https://cdn.branch.io/branch-latest.min.js"; k = r.getElementsByTagName(a)[0]; k.parentNode.insertBefore(d, k); b[n] = h } })(window, document, "script", "branch", function (b, r) { b[r] = function () { b._q.push([r, arguments]) } }, { _q: [], _v: 1 }, "addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking qrCode".split(" "), 0)
         // init Branch
-        window.journeyShown = false
-        branch.init('key_live_mg0519nJbhjZQBPkKF6G6epnEAeGL8VD');
 
-        branch.addListener('didShowJourney', journeyListener);
-        var journeyListener = function (event, data) {
-            console.log('inside journeyListener')
-            if (window.journeyShown === false) {
-                window.journeyShown = true
-                console.log("journey shown")
-                branch.closeJourney(function (err) { console.log(err); });
-                console.log("Closed journey")
-            }
-            else {
-                    console.log('journey shown')
-                    dataLayer.push({ 'event': 'branch-journey', 'journeyData': data })
-            }
-        }
-        let x = setInterval( function () {
-                console.log('waited 3 seconds')
-                branch.track('pageview');
-                clearInterval(x)
-        }, 3000)
+        var branchMetadata = document.createElement('meta')
+        branchMetadata.setAttribute('name', 'branch:deeplink:user-agent')
+        branchMetadata.setAttribute('content', window.navigator.userAgent)
+        document.head.appendChild(branchMetadata)
+
+        branch.init('key_live_mg0519nJbhjZQBPkKF6G6epnEAeGL8VD');
+        
+        //Set to a timeout, but could be programmatically set to anything
+        // setTimeout(() => {
+        //     var meta = document.createElement('meta');
+        //     meta.setAttribute("property", "branch:deeplink:journeyTest");
+        //     meta.content = "true";
+        //     document.getElementsByTagName('head')[0].appendChild(meta);
+        //     console.log("meta tag inserted");
+        //     branch.track("pageview");
+        // }, 5000)
+
+        // window.journeyShown = false
+        // var journeyListener = function (event, data) {
+        //     console.log('inside journeyListener')
+        //     if (window.journeyShown === false) {
+        //         window.journeyShown = true
+        //         console.log("journey shown")
+        //         setTimeout(() => branch.closeJourney(function (err) { console.log(err); }), 50)
+        //         console.log("Closed journey")
+        //     }
+        //     else {
+        //         //console.log('journey shown')
+        //     }
+        // }
+        // setTimeout(function () {
+        //         branch.track('pageview');
+        // }, 3000)
+        // branch.addListener('didShowJourney', journeyListener);
     </script>
 </head>
 
@@ -50,80 +63,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPQ4LVR" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <h1>Branch Test</h1>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    <h1 id="test">Branch Test</h1>
     <br />
     <br />
     <br />
